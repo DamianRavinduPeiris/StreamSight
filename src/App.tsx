@@ -1,11 +1,11 @@
-import './App.css'
+import KafkaUI from "./components/kafka-ui"
 
 function App() {
   
 
   return (
     <>
-   
+      <KafkaUI />
       
     </>
   )
