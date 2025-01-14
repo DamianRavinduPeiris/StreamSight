@@ -171,7 +171,15 @@ export default function KafkaUI() {
 
         {shouldShowConsumableEvents && (
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-semibold mb-4">Consume Events</h2>
+            {consumingTopic ? (
+              <>
+                <h2 className="text-2xl font-semibold mb-4">Consuming from Topic : {consumingTopic}</h2>
+                <span className="loading loading-infinity loading-lg"></span>
+              </>
+            ) : (
+              <h2 className="text-2xl font-semibold mb-4">Select a topic to consume.</h2>
+            )}
+            
 
             <div className="relative mb-4">
               <input
