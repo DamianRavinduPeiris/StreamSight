@@ -104,7 +104,7 @@ export default function KafkaUI() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center px-6 py-8">
-      <h1 className="text-4xl font-bold tracking-wide mb-10">StreamSight</h1>
+      <h1 className="text-4xl font-bold tracking-wide mb-10">ALMSafeStream</h1>
 
       {showAlert && <Alert msg={alertMessage} />}
 
@@ -173,13 +173,16 @@ export default function KafkaUI() {
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
             {consumingTopic ? (
               <>
-                <h2 className="text-2xl font-semibold mb-4">Consuming from Topic : {consumingTopic}</h2>
+                <h2 className="text-2xl font-semibold mb-4">
+                  Consuming from : {consumingTopic}
+                </h2>
                 <span className="loading loading-infinity loading-lg"></span>
               </>
             ) : (
-              <h2 className="text-2xl font-semibold mb-4">Select a topic to consume.</h2>
+              <h2 className="text-2xl font-semibold mb-4">
+                Select a topic to consume.
+              </h2>
             )}
-            
 
             <div className="relative mb-4">
               <input
@@ -227,15 +230,17 @@ export default function KafkaUI() {
 
             <div className="overflow-y-auto max-h-64 bg-gray-700 rounded-lg">
               {filteredEvents.length > 0 ? (
-                filteredEvents.map((event, index) => (
-                  <div key={index} className="p-4 border-b border-gray-600">
-                    <pre className="whitespace-pre-wrap text-sm">{event}</pre>
-                  </div>
-                ))
+              filteredEvents.map((event, index) => (
+                <div key={index} className="p-4 border-b border-gray-600">
+                <pre className="whitespace-pre-wrap text-sm">
+                  {highlightQuery(event)}
+                </pre>
+                </div>
+              ))
               ) : (
-                <p className="text-gray-400 text-center py-4">
-                  No events found
-                </p>
+              <p className="text-gray-400 text-center py-4">
+                No events found
+              </p>
               )}
             </div>
           </div>
