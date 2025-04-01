@@ -5,7 +5,7 @@ export default function NavBar() {
   <div className="navbar-start">
   </div>
   <div className="navbar-center">
-    <a className="btn btn-ghost text-xl">Kafka Stream</a>
+    <a className="btn btn-ghost text-xl">StreamSight</a>
   </div>
   <div className="navbar-end">
     <button className="btn btn-ghost btn-circle">
