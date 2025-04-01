@@ -1,5 +1,5 @@
 import type React from "react"
-
+import toast, { Toaster } from 'react-hot-toast';
 import { useState, useEffect, useRef } from "react"
 import { io } from "socket.io-client"
 
@@ -10,8 +10,6 @@ export default function KafkaUI() {
   const [message, setMessage] = useState("")
   const [consumingTopic, setConsumingTopic] = useState("")
   const [shouldShowConsumableEvents, setConsumableEventsStatus] = useState(false)
-  const [showAlert, setAlertStatus] = useState(false)
-  const [alertMessage, setAlertMessage] = useState("")
   const [consumedEvents, setConsumedEvents] = useState<string[]>([])
   const [topics, setTopics] = useState<string[]>([])
   const [searchQuery, setSearchQuery] = useState("")
@@ -50,9 +48,7 @@ export default function KafkaUI() {
 
   useEffect(() => {
     socket.on("status", (status) => {
-      setAlertStatus(true)
-      setAlertMessage(status)
-      setTimeout(() => setAlertStatus(false), 2000)
+      toast.success(status)
     })
 
     socket.on("message", (message) => {
@@ -60,7 +56,7 @@ export default function KafkaUI() {
         const formattedMessage = JSON.stringify(JSON.parse(message), null, 2)
         setConsumedEvents((prev) => [formattedMessage, ...prev])
       } catch (error) {
-        console.error("Invalid JSON received:", message)
+        console.error(`Invalid JSON received :${message} : Error : ${error}`)
         setConsumedEvents((prev) => [message, ...prev])
       }
     })
@@ -118,9 +114,8 @@ export default function KafkaUI() {
       setMessage(formattedJson)
       return true
     } catch (error) {
-      setAlertStatus(true)
-      setAlertMessage("Invalid JSON format!")
-      setTimeout(() => setAlertStatus(false), 2000)
+      console.error("Invalid JSON format!", error)
+      toast.error("Invalid JSON format")
       return false
     }
   }
@@ -161,6 +156,7 @@ export default function KafkaUI() {
             StreamSight
           </h1>
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+            <Toaster/>
             <div
               style={{
                 borderRadius: "9999px",
@@ -194,71 +190,6 @@ export default function KafkaUI() {
           padding: "32px 16px",
         }}
       >
-        {/* Alert */}
-        {showAlert && (
-          <div
-            style={{
-              position: "fixed",
-              top: "16px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: "50",
-              maxWidth: "448px",
-              width: "100%",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                borderRadius: "8px",
-                backgroundColor: "#27272a",
-                padding: "16px",
-                boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
-              }}
-            >
-              <svg
-                style={{ height: "20px", width: "20px" }}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-                <path d="M12 8V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <circle cx="12" cy="16" r="1" fill="currentColor" />
-              </svg>
-              <p style={{ fontSize: "14px" }}>{alertMessage}</p>
-              <button
-                style={{
-                  marginLeft: "auto",
-                  borderRadius: "9999px",
-                  padding: "4px",
-                  cursor: "pointer",
-                  backgroundColor: "transparent",
-                  border: "none",
-                  color: "white",
-                }}
-                onClick={() => setAlertStatus(false)}
-              >
-                <svg
-                  style={{ height: "16px", width: "16px" }}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M18 6L6 18M6 6L18 18"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        )}
 
         <div style={{ display: "grid", gap: "32px" }}>
           <div
