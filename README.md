@@ -22,4 +22,4 @@
 ## 💡 Contributions are Welcome!  
 Have an idea or a fix? Raise a PR!  
 
-#### Made with ❤️ by [Damian Peiris](#).
+#### Made with ❤️ by [Damian](#).
