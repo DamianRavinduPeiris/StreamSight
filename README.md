@@ -3,7 +3,7 @@
 **Real-time event streaming, simplified.**  
 
 ---
-Backend repo can be found in <a href="https://github.com/DamianRavinduPeiris/StreamSight">here.</a>
+Backend repo can be found in <a href="https://github.com/DamianRavinduPeiris/kafka-ts">here.</a>
 
 ### 1) Producing Events  
 ![Producing Events](https://github.com/user-attachments/assets/55e08de7-c6c4-4f96-b9f6-b4e0d8d91fec)  
