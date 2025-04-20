@@ -4,15 +4,6 @@
 
 Backend repo can be found in <a href="https://github.com/DamianRavinduPeiris/kafka-ts">here.</a>
 
----
-
-
-## Tech Stack
-
-- MERN Stack with Kafka JS and Socket.io.
-
----
-
 ## Installation and Setup
 
 To set up and run the project locally, follow these steps:
