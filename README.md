@@ -4,7 +4,6 @@
 
 **Backend Repository** [can be found from here.](https://github.com/DamianRavinduPeiris/kafka-ts)
 
----
 
 ## Installation & Setup
 
@@ -27,12 +26,10 @@ Ensure the following tools are installed:
 1. **Clone the repository**
    ```bash
    git clone https://github.com/DamianRavinduPeiris/StreamSight.git
-   ```
 
 2. **Navigate to the project directory**
    ```bash
    cd StreamSight
-   ```
 
 3. **Install dependencies**
    Using npm:
@@ -42,7 +39,6 @@ Ensure the following tools are installed:
    Or using yarn:
    ```bash
    yarn install
-   ```
 
 4. **Configure the Socket endpoint**
 
@@ -65,8 +61,6 @@ Ensure the following tools are installed:
    Open your browser and go to:  
    `http://localhost:3000`
 
----
-
 ## Features
 
 ### Consume Events
@@ -77,7 +71,6 @@ Ensure the following tools are installed:
 
 - Publish events to configured Kafka topics directly from the client interface.
 
----
 
 ## Use Cases
 
@@ -87,24 +80,20 @@ Ensure the following tools are installed:
 - **Streaming Applications**  
   Enable interactive, low-latency communication between services and clients.
 
----
 
 ## Screenshots
 
 ### 1) Producing Events  
 ![Producing Events](https://github.com/user-attachments/assets/55e08de7-c6c4-4f96-b9f6-b4e0d8d91fec)
 
----
 
 ### 2) Consuming Events  
 ![Consuming Events](https://github.com/user-attachments/assets/b850e4e3-1477-4eba-b7e4-584ff20b2821)
 
----
 
 ### 3) Searching Through Events  
 ![Searching Events](https://github.com/user-attachments/assets/3c43a1df-3929-434a-bcbd-f465ad35905d)
 
----
 
 ## Contribution Guidelines
 
@@ -131,12 +120,10 @@ We welcome contributions from the community!
 
 If you discover any bugs or have feature suggestions, please open an issue with a clear and descriptive explanation.
 
----
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 
----
 
 Made with ❤️ by **Damian.**
