@@ -10,7 +10,7 @@
 
 ### Backend Configuration
 
-Please follow the instructions in the [here](https://github.com/DamianRavinduPeiris/kafka-ts) to set up and configure the backend service.
+Please follow the instructions in [here](https://github.com/DamianRavinduPeiris/kafka-ts) to set up and configure the backend service.
 
 ### Frontend Setup
 
