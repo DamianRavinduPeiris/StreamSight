@@ -49,14 +49,14 @@ Ensure the following tools are installed:
 5. **Start the application**
    Using npm:
    ```bash
-   npm run start
+   npm run dev
    ```
    Or using yarn:
    ```bash
-   yarn start
+   yarn dev
    ```
 
-6. **Access the app**
+6. **Accessing the web UI**
 
    Open your browser and go to:  
    `http://localhost:3000`
